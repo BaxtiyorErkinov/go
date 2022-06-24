@@ -4,19 +4,21 @@ import (
     "fmt"
 )
 
+var mess string = "World" // global scope
+
 func main() {
-    var mess string = "Hello World" // string
-    var num int = 1 // integer - целое число
-    var num2 float32 = 1.1 // float - тип с плавающей запятой 
-    var b bool = true // boolean - true | false
-    var a byte = 68
-    var r rune = 'a'
+    // var mess string = "Hello World" // local scope
+    mess := sayHi("Baxtiyor", 18)
+    printMess(mess)
+    // printMess("Func 1")
+    // printMess("Func 2")
+    // printMess("Func 3")
+}
 
+func printMess(str string) {
+    fmt.Println(str)
+}
 
-    fmt.Println(mess)
-    fmt.Println(num)
-    fmt.Println(num2)
-    fmt.Println(b)
-    fmt.Printf("%c\n", a)    
-    fmt.Println(r)
+func sayHi(name string, age int) string {
+    return fmt.Sprintf("Hello %s, Age: %d years old", name, age )
 }
