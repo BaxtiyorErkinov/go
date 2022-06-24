@@ -2,23 +2,23 @@ package main
 
 import (
     "fmt"
+    "errors"
 )
 
-var mess string = "World" // global scope
 
 func main() {
-    // var mess string = "Hello World" // local scope
-    mess := sayHi("Baxtiyor", 18)
-    printMess(mess)
-    // printMess("Func 1")
-    // printMess("Func 2")
-    // printMess("Func 3")
+    mess, allowed := enterTheClub(6)
+    fmt.Println(mess, allowed)
+
 }
 
-func printMess(str string) {
-    fmt.Println(str)
-}
-
-func sayHi(name string, age int) string {
-    return fmt.Sprintf("Hello %s, Age: %d years old", name, age )
+func enterTheClub(age int) (string, error) {
+    if age >= 18 && age < 45 {
+        return "Coming", nil
+    } else if age >= 45 && age < 65 {
+        return "Are you sure?", nil
+    } else if age >= 65 {
+        return "You are very old", errors.New("You are very old!!!")
+    }
+    return "Closed", errors.New("You are very young")
 }
