@@ -5,44 +5,26 @@ import (
 )
 
 func main() {
+    // ================= ARRAYS ===================
+    var arr = [3]int{1,2}
+   // arr = append(arr, 2) // Error => first argument to append must be slice; have [3]int
 
-    // text := 77
-    // fmt.Println(&text) // 0xc000098000
+    fmt.Println(arr) // Output: [ 1, 2, 0]
 
-    // address := &text // 0xc000098000
-    // fmt.Println(*address) // 77
-    // fmt.Println(*&text) // 77
-    // fmt.Printf("address это %T\n", &text) // *int
-    // var el *int //   здесь он ожидает pointer (ссылку). Например: &text
-    // fmt.Println(el) // nil
+    // =============== SLICES ===============
+
+    var seaFishes = []string{"shark", "delphin", "squid", "akula", "sakkizoyoq", "toshbaqa"}
+    // fmt.Printf("%q\n", seaFishes)
+
+    // var names = make([]string, 3, 5)
+    // names = append(names, "salom", "salom", "salom")
+    // fmt.Printf("%q\n", names    )
+    var other = []string{}
+    // other = append(seaFishes[:2], seaFishes[3:]...) // seaFishes[:2] - 2gacha bulgan yana 0,1 indexdagi elmentlar. SeaFisher[3:] 3 - index dan bowlab uyogini oladi
+    other = append(seaFishes[:3], seaFishes[4:]...)
+    fmt.Println(other)
 
 
 
-    // mess := "Hello World" // 0x1234
-    // fmt.Println(mess) // 0x1234
-    // changeMess(&mess)
-    // fmt.Println(mess) // 0x1234
-
-    val1 := "val1"
-    val2 := "val2"
-    replaceOfValues(&val1, &val2)
-    fmt.Println("Val1: ", val1)
-    fmt.Println("Val2: ",  val2)
 }
-
-
-
-func changeMess(mess *string) { // 0x1234
-    *mess += "Say Hello"
-}
-
-func printMess(mess string) {
-    fmt.Println(mess) // 0x12345
-}
-
-func replaceOfValues(val1 *string, val2 *string) {
-    newVal1 := *val1
-    newVal2 := *val2
-    *val1 = newVal2
-    *val2 = newVal1
-}
+ 
