@@ -2,18 +2,29 @@ package main
 
 import (
     "fmt"
-    "reflect"
 )
 
 func main() {
+    // ================= ARRAYS ===================
+    var arr = [3]int{1,2}
+   // arr = append(arr, 2) // Error => first argument to append must be slice; have [3]int
 
-    const mess string = "Hello World" // constant - не возможно изменять value
+    fmt.Println(arr) // Output: [ 1, 2, 0]
 
-    var mess2 int = 1 // возможно изменять value 
+    // =============== SLICES ===============
 
-    mess3 := "variable" // := означает что иницализатции value. A  один = означает присваивание
-    mess3 = "new value"
+    var seaFishes = []string{"shark", "delphin", "squid", "akula", "sakkizoyoq", "toshbaqa"}
+    // fmt.Printf("%q\n", seaFishes)
 
-    fmt.Println(mess, mess2, mess3)
-    fmt.Println(reflect.TypeOf(mess2))
+    // var names = make([]string, 3, 5)
+    // names = append(names, "salom", "salom", "salom")
+    // fmt.Printf("%q\n", names    )
+    var other = []string{}
+    // other = append(seaFishes[:2], seaFishes[3:]...) // seaFishes[:2] - 2gacha bulgan yana 0,1 indexdagi elmentlar. SeaFisher[3:] 3 - index dan bowlab uyogini oladi
+    other = append(seaFishes[:3], seaFishes[4:]...)
+    fmt.Println(other)
+
+
+
 }
+ 
